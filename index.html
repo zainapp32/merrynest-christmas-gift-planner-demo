@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>[DEMO — 10 free saves] MerryNest — Christmas Gift Planner</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{--bg:#FFF8EE;--card:#fff;--tx:#2a2320;--mu:#6b625b;--pr:#B02A37;--gr:#1F4D38;--go:#C9A04E;--bd:#ecdfcb;--on:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-th=blush]{--bg:#FFF3F4;--pr:#B5486A;--gr:#6B4A5A;--bd:#f1d5d9}
+:root[data-th=winter]{--bg:#F0F6F2;--pr:#1F4D38;--gr:#2F6B50;--bd:#d3e0d6}
+:root[data-th=midnight]{--bg:#15171f;--card:#20232d;--tx:#f3eee6;--mu:#a9a39a;--pr:#E8707A;--gr:#5CB88A;--go:#E1BC6A;--bd:#343846;--on:#15171f}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"])[data-th=classic]{--bg:#1d1a19;--card:#292523;--tx:#f5eee4;--mu:#b0a89d;--pr:#E8707A;--gr:#5CB88A;--go:#E1BC6A;--bd:#403a36;--on:#1d1a19}}
+:root[data-theme="dark"][data-th=classic]{--bg:#1d1a19;--card:#292523;--tx:#f5eee4;--mu:#b0a89d;--pr:#E8707A;--gr:#5CB88A;--go:#E1BC6A;--bd:#403a36;--on:#1d1a19}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;margin:.2em 0}
+.lights{height:20px;background:radial-gradient(circle at 10px 10px,#e5383b 5px,transparent 6px) 0 0/72px 20px,radial-gradient(circle at 28px 10px,#f4c542 5px,transparent 6px) 0 0/72px 20px,radial-gradient(circle at 46px 10px,#3aa76d 5px,transparent 6px) 0 0/72px 20px,radial-gradient(circle at 64px 10px,#4c8dff 5px,transparent 6px) 0 0/72px 20px;border-bottom:2px solid var(--bd)}
+.app{max-width:900px;margin:0 auto;padding:10px 14px 100px;position:relative;z-index:1}
+header{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.logo{display:flex;align-items:center;gap:8px;font:700 1.4rem Georgia,serif;color:var(--pr)}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--card);border-top:1px solid var(--bd);padding:4px 2px calc(4px + env(safe-area-inset-bottom,0px));z-index:5}
+nav button{flex:1 1 0;min-width:0;background:none;border:0;color:var(--mu);padding:5px 0;font:inherit;font-size:10.5px;min-height:50px;cursor:pointer;border-radius:10px}
+nav button b{display:block;font-size:19px}nav button.on{color:var(--pr);background:color-mix(in srgb,var(--pr) 12%,transparent);font-weight:700}
+@media(min-width:800px){nav{position:sticky;top:0;bottom:auto;border:1px solid var(--bd);border-radius:14px;margin:8px 0}nav button{font-size:13px}}
+.card{background:var(--card);border:1px solid var(--bd);border-top:4px solid var(--pr);border-radius:16px;padding:14px;margin:12px 0}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}.grid .card{margin:0}
+.mu{color:var(--mu);font-size:.88rem}.neg{color:var(--pr)}.ok{color:var(--gr)}
+button,select,input,textarea{font:inherit;color:var(--tx)}
+.btn{background:var(--pr);color:var(--on);border:0;border-radius:10px;padding:10px 16px;min-height:44px;cursor:pointer;font-weight:600}
+.btn.alt{background:none;color:var(--pr);border:1.5px solid var(--pr)}.btn.sm{min-height:38px;padding:4px 12px;font-size:.88rem}.btn.big{width:100%}
+:focus-visible{outline:3px solid var(--go);outline-offset:2px}
+input,select,textarea{width:100%;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px;min-height:44px}
+label{display:block;font-size:.88rem;color:var(--mu);margin:10px 0 2px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.sp{justify-content:space-between}.row>input,.row>select{flex:1 1 130px;width:auto}
+.bar{height:10px;background:var(--bd);border-radius:6px;overflow:hidden;margin:6px 0}.bar i{display:block;height:100%;background:var(--gr);border-radius:6px}.bar i.over{background:var(--pr)}
+.tag{font-size:.78rem;padding:2px 10px;border-radius:99px;background:color-mix(in srgb,var(--go) 28%,transparent);white-space:nowrap}
+.hero{position:relative;overflow:hidden;border-radius:18px;background:linear-gradient(180deg,#14304f,#2b4f7a 70%,#4b719a);color:#fff;padding:16px 16px 0;min-height:190px;margin:8px 0}
+.hero h1{margin:0;font-size:1.5rem}.hero p{margin:4px 0;position:relative;z-index:1}.hero h1{position:relative;z-index:1}
+.hero svg.scene{position:absolute;left:0;bottom:0;width:100%;height:105px}
+.big-n{font:700 2.3rem Georgia,serif;line-height:1.1}
+.empty{text-align:center;padding:22px;color:var(--mu)}.empty svg{width:64px;height:64px;display:block;margin:0 auto 8px}
+.q{background:none;border:1.5px solid var(--bd);border-radius:50%;width:38px;height:38px;cursor:pointer;color:var(--pr);font-weight:700}
+dialog{border:0;border-radius:18px;padding:18px;width:min(94vw,460px);max-height:90vh;overflow:auto;background:var(--card);color:var(--tx)}dialog::backdrop{background:#0008}
+#toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:10px 16px;border-radius:12px;z-index:9;display:none;max-width:92vw}
+#toast button{background:none;border:0;color:var(--go);font-weight:700;cursor:pointer;margin-left:10px;min-height:32px}
+input[type=checkbox]{width:26px;height:26px;min-height:0;flex:0 0 26px;accent-color:var(--pr)}
+.snow{position:fixed;top:-20px;color:#fff;text-shadow:0 0 3px #7a8fa8;pointer-events:none;z-index:0;opacity:.7;display:none}
+@media(prefers-reduced-motion:no-preference){.snow{display:block;animation:fall linear infinite}@keyframes fall{to{transform:translateY(112vh) rotate(180deg)}}.lights{animation:tw 3s ease-in-out infinite alternate}@keyframes tw{to{filter:brightness(1.35)}}.bar i{transition:width .4s}}
+.sw{height:3px}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="tree" viewBox="0 0 60 80"><polygon points="30,6 9,38 51,38" fill="#2f7d52"/><polygon points="30,24 5,58 55,58" fill="#276c46"/><polygon points="30,42 1,74 59,74" fill="#1f5a3a"/><rect x="26" y="74" width="8" height="6" fill="#7a4b2a"/><path d="M30 0l2.4 5.2 5.6.6-4.2 3.8 1.2 5.6L30 12.4l-5 2.8 1.2-5.6L22 5.8l5.6-.6z" fill="#f4c542"/><circle cx="24" cy="36" r="2.5" fill="#e5383b"/><circle cx="37" cy="52" r="2.5" fill="#f4c542"/><circle cx="20" cy="62" r="2.5" fill="#4c8dff"/><circle cx="42" cy="68" r="2.5" fill="#e5383b"/></symbol>
+<symbol id="gift" viewBox="0 0 50 50"><rect x="5" y="22" width="40" height="26" rx="2" fill="#c92a3a"/><rect x="3" y="14" width="44" height="10" rx="2" fill="#a51f2e"/><rect x="22" y="14" width="6" height="34" fill="#f4c542"/><path d="M25 14c-8-10-16-4-9 0zM25 14c8-10 16-4 9 0z" fill="#f4c542"/></symbol>
+<symbol id="bauble" viewBox="0 0 30 40"><rect x="12" y="2" width="6" height="6" fill="#c9a04e"/><circle cx="15" cy="24" r="13" fill="#c92a3a"/><path d="M8 20a8 8 0 0 1 6-7" stroke="#fff" stroke-width="2" fill="none" opacity=".6"/></symbol>
+</defs></svg>
+<div class="lights" aria-hidden="true"></div>
+<div class="app"><header><div class="logo"><svg width="30" height="38" aria-hidden="true"><use href="#tree"/></svg>MerryNest</div><button class="btn alt sm" id="who"></button></header><nav id="nav" aria-label="Main"></nav><main id="main" tabindex="-1"></main></div>
+<div id="toast" role="status" aria-live="polite"></div><dialog id="dlg"></dialog>
+<script>
+"use strict";
+const KEY="merrynest_v2",ST=["planned","bought","wrapped","sent"],LB={planned:"🛍 To buy",bought:"✅ Bought",wrapped:"🎀 Wrapped",sent:"🎉 Given"};
+const $=s=>document.querySelector(s),uid=()=>Math.random().toString(36).slice(2,9);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let S,view="home",q="";
+const blank=()=>({setup:false,name:"",cur:"USD",budget:0,date:new Date().getFullYear()+"-12-25",theme:"classic",recips:[],gifts:[],ideas:[],tasks:[],extras:[],sav:{target:0,weeks:26,paid:[]}});
+function load(){try{S={...blank(),...JSON.parse(localStorage.getItem(KEY)||"null")}}catch(e){S=blank()}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+const fm=c=>{try{return new Intl.NumberFormat(undefined,{style:"currency",currency:S.cur}).format((c||0)/100)}catch(e){return((c||0)/100).toFixed(2)}};
+const cents=v=>Math.round(parseFloat(String(v).replace(/[^0-9.\-]/g,""))*100)||0,num=c=>((c||0)/100).toFixed(2);
+function toast(m,snap){const t=$("#toast");t.innerHTML=esc(m)+(snap?`<button id="ub">Undo</button>`:"");t.style.display="block";if(snap)$("#ub").onclick=()=>{S=JSON.parse(snap);save();render();t.style.display="none"};clearTimeout(t._t);t._t=setTimeout(()=>t.style.display="none",snap?6000:2800)}
+function del(fn,msg){const s=JSON.stringify(S);fn();save();render();toast(msg,s)}
+const act=g=>g.status!=="canceled",st=g=>ST.includes(g.status)?g.status:"planned",bought=g=>ST.indexOf(st(g))>=1;
+const rn=id=>(S.recips.find(r=>r.id===id)||{name:"Not sure yet"}).name,pct=(a,b)=>b>0?Math.min(100,Math.round(a/b*100)):0;
+const pdate=s=>{const[a,b,c]=(s||"").split("-").map(Number);return a?new Date(a,b-1,c):null};
+const fd=s=>{const d=pdate(s);return d?d.toLocaleDateString(undefined,{day:"numeric",month:"long",year:"numeric"}):""};
+function calc(){const G=S.gifts.filter(act),B=G.filter(bought),ex=S.extras.reduce((a,e)=>a+e.amt,0),spent=B.reduce((a,g)=>a+(g.actual||g.plan||0),0)+ex,pend=G.filter(g=>!bought(g)).reduce((a,g)=>a+(g.plan||0),0);
+ const c=k=>G.filter(g=>ST.indexOf(st(g))>=k).length;return{G,spent,pend,left:S.budget-spent,free:S.budget-spent-pend,n:G.length,b:c(1),w:c(2),s:c(3)}}
+const art=id=>`<svg aria-hidden="true"><use href="#${id}"/></svg>`;
+const emp=(i,t)=>`<div class="card empty" style="grid-column:1/-1">${art(i)}${t}</div>`;
+const scene=`<svg class="scene" viewBox="0 0 400 105" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="340" cy="28" r="14" fill="#f6f1d8"/><path d="M0 70Q100 45 200 68T400 60V105H0z" fill="#e8eef5"/><path d="M0 88Q120 66 240 86T400 80V105H0z" fill="#fff"/><use href="#tree" x="40" y="26" width="50" height="66"/><use href="#tree" x="100" y="46" width="34" height="46"/><use href="#tree" x="300" y="34" width="44" height="58"/><use href="#gift" x="150" y="62" width="26" height="26"/><use href="#gift" x="176" y="70" width="20" height="20"/><use href="#gift" x="246" y="66" width="24" height="24"/></svg>`;
+const HELP={home:"Your whole Christmas at a glance: money left, and how many gifts are bought, wrapped and given.",gifts:"Type a gift, pick who it’s for, add a price. Then tap the big button on each gift to move it forward.",people:"Everyone you buy for. Give each person a budget and watch the bar fill up.",ideas:"Not sure yet? Save ideas here. Tap “Make a gift” when you decide.",shop:"Gifts you still need to buy, grouped by shop. Tap “Bought” and enter the price you paid.",save:"Save a little each week. Week 1 is smallest, the last week biggest. Tick each week you save. This is separate from your gift budget.",tasks:"A simple to-do list: wrap gifts, post parcels, and so on.",set:"Change your name, theme and budget. Make a backup often, because your data lives only on this device."};
+const TABS=[["home","🏠","Home"],["gifts","🎁","Gifts"],["people","👪","People"],["ideas","💡","Ideas"],["shop","🛒","Shop"],["save","🎄","Savings"],["tasks","✅","Tasks"],["set","⚙️","Settings"]];
+const ttl=(t,k)=>`<div class="row sp"><h2>${t}</h2><button class="q" data-a="help" aria-label="Help for this page">?</button></div>`;
+function go(v){view=v;q="";render();$("#main").focus({preventScroll:true});scrollTo(0,0)}
+function render(){document.documentElement.dataset.th=S.theme;
+ if(!S.setup){$("#nav").style.display="none";$("#who").style.display="none";return wiz()}
+ $("#nav").style.display="";$("#who").style.display="";$("#who").textContent="Hi, "+(S.name||"friend")+" ✏️";$("#who").onclick=()=>A("rename");
+ $("#nav").innerHTML=TABS.map(t=>`<button class="${view===t[0]?"on":""}" data-v="${t[0]}" aria-label="${t[2]}" aria-current="${view===t[0]}"><b>${t[1]}</b>${t[2]}</button>`).join("");
+ $("#nav").querySelectorAll("button").forEach(b=>b.onclick=()=>go(b.dataset.v));
+ $("#main").innerHTML=({home:vHome,gifts:vGifts,people:vPeople,ideas:vIdeas,shop:vShop,save:vSave,tasks:vTasks,set:vSet})[view]();bind()}
+const CUR=["USD","EUR","GBP","CAD","AUD","PKR","INR","AED"];
+function wiz(){$("#main").innerHTML=`<div class="hero"><h1>Welcome to MerryNest</h1><p>Plan your gifts, budget and tasks in one cosy place. No account needed.</p>${scene}</div><form class="card" id="wf"><label for="w1">Your name (optional)</label><input id="w1" autocomplete="given-name"><label for="w2">Currency</label><select id="w2">${CUR.map(c=>`<option>${c}</option>`).join("")}</select><label for="w3">Christmas date</label><input id="w3" type="date" value="${esc(S.date)}"><label for="w4">Total gift budget</label><input id="w4" inputmode="decimal" placeholder="e.g. 1000"><div class="row" style="margin-top:14px"><button class="btn" style="flex:1">Start planning</button><button class="btn alt" type="button" id="wd" style="flex:1">Try sample data</button></div></form>`;
+ const fin=d=>{S.name=$("#w1").value.trim();S.cur=$("#w2").value;S.date=$("#w3").value||S.date;S.budget=cents($("#w4").value);S.setup=true;S.tasks=["Set your budget","Buy gifts","Wrap gifts","Give or post gifts"].map((t,i)=>({id:uid(),t,done:i==0,due:""}));if(d)seed();save();render()};
+ $("#wf").onsubmit=e=>{e.preventDefault();fin(false)};$("#wd").onclick=()=>fin(true)}
+function seed(){S.budget=S.budget||120000;S.recips=[["Mom","Family",20000],["Dad","Family",15000],["Ava","Children",12000],["Sam","Friends",8000]].map(r=>({id:uid(),name:r[0],group:r[1],budget:r[2],card:"no",addr:""}));
+ const R=S.recips,g=(i,n,p,a,s,store)=>({id:uid(),name:n,rid:R[i].id,plan:p,actual:a,status:s,store,url:"",notes:""});
+ S.gifts=[g(0,"Cashmere scarf",9000,8500,"wrapped","Nordstrom"),g(0,"Cookbook",3000,2800,"bought","Bookshop"),g(1,"Leather wallet",6000,0,"planned","Amazon"),g(2,"LEGO castle",8000,7900,"sent","Target"),g(3,"Wireless earbuds",7500,0,"planned","Best Buy")];
+ S.ideas=[{id:uid(),name:"Board game set",rid:R[3].id,price:4500,store:"Target",fav:true,done:false}];S.extras=[{id:uid(),t:"Wrapping paper",amt:1800}];
+ S.sav={target:60000,weeks:26,paid:Array.from({length:26},(_,i)=>i<9)}}
+function vHome(){const c=calc(),d=pdate(S.date),days=d?Math.ceil((d-new Date().setHours(0,0,0,0))/864e5):0,up=S.tasks.filter(t=>!t.done).slice(0,3);
+ const pr=(l,v)=>`<div class="row sp"><span>${l}</span><span class="mu">${v} of ${c.n}</span></div><div class="bar"><i style="width:${pct(v,c.n)}%"></i></div>`;
+ return`<div class="hero"><h1>${days>0?`${days} day${days==1?"":"s"} to Christmas`:days==0?"Merry Christmas! 🎄":"Hope it was a lovely Christmas"}</h1><p>${esc(fd(S.date))}</p>${scene}</div>
+ <div class="card"><div class="mu">Money left for gifts</div><div class="big-n ${c.left<0?"neg":"ok"}">${fm(c.left)}</div><div class="bar"><i class="${c.left<0?"over":""}" style="width:${pct(c.spent,S.budget)}%"></i></div><div class="mu">Budget ${fm(S.budget)} · Spent ${fm(c.spent)} · Still to buy about ${fm(c.pend)}</div>${c.left<0?`<p class="neg"><b>You’re ${fm(-c.left)} over budget.</b></p>`:c.free<0?`<p class="neg">Heads up: your planned gifts would go ${fm(-c.free)} over budget.</p>`:""}</div>
+ <div class="card"><h3>Your gifts</h3>${c.n?pr("🛍 Bought",c.b)+pr("🎀 Wrapped",c.w)+pr("🎉 Given",c.s):`<div class="empty">${art("gift")}No gifts yet. Add your first one!</div>`}<div class="row" style="margin-top:8px"><button class="btn" data-go="gifts">+ Add a gift</button><button class="btn alt" data-go="people">+ Add a person</button></div></div>
+ <div class="card"><h3>Up next</h3>${up.length?up.map(t=>`<div>☐ ${esc(t.t)}</div>`).join(""):`<div class="mu">All done. Well done! 🎉</div>`}</div>
+ ${!S.lastBackup&&(S.gifts.length||S.recips.length)?`<div class="card"><b>💾 Make a backup</b><p class="mu">Your plans live only on this device.</p><button class="btn sm" data-a="bk">Save backup</button></div>`:""}`}
+const pOpts=(sel)=>`<option value="">Not sure yet</option>${S.recips.map(r=>`<option value="${r.id}" ${sel===r.id?"selected":""}>${esc(r.name)}</option>`).join("")}`;
+function giftCard(g){const s=st(g),i=ST.indexOf(s),nx=["✅ Mark bought","🎀 Mark wrapped","🎉 Mark given"][i];
+ return`<div class="card"><div class="row sp"><b>${esc(g.name)}</b><span class="tag">${LB[s]}</span></div><div class="mu">For ${esc(rn(g.rid))}${g.store?" · "+esc(g.store):""}</div><div>${bought(g)&&g.actual?`Paid ${fm(g.actual)}`:`Plan ${fm(g.plan)}`}</div>${g.notes?`<div class="mu">${esc(g.notes)}</div>`:""}${/^https?:\/\//i.test(g.url||"")?`<a href="${esc(g.url)}" target="_blank" rel="noopener noreferrer">Open link</a>`:""}
+ <div class="row" style="margin-top:8px">${nx?`<button class="btn" style="flex:2" data-a="adv" data-id="${g.id}">${nx}</button>`:`<span class="ok" style="flex:2"><b>All done 🎉</b></span>`}<button class="btn alt sm" data-a="editgift" data-id="${g.id}">Edit</button><button class="btn alt sm" data-a="delgift" data-id="${g.id}">Delete</button></div></div>`}
+function vGifts(){const L=S.gifts.filter(g=>act(g)&&(g.name+rn(g.rid)+(g.store||"")).toLowerCase().includes(q.toLowerCase()));
+ return`${ttl("Gifts")}<div class="card"><h3>Add a gift</h3><input id="gn" placeholder="What is the gift? e.g. Scarf" aria-label="Gift name"><div class="row" style="margin-top:8px"><select id="gp" aria-label="Who is it for">${pOpts("")}<option value="__new" ${S.recips.length?"":"selected"}>➕ New person…</option></select><input id="gc" inputmode="decimal" placeholder="Price" aria-label="Price"></div><input id="gnp" placeholder="New person’s name" aria-label="New person name" style="margin-top:8px;display:${S.recips.length?"none":"block"}"><button class="btn big" style="margin-top:10px" data-a="qadd">Add gift</button></div>
+ ${S.gifts.length>5?`<input id="q" placeholder="🔍 Search gifts" aria-label="Search gifts" value="${esc(q)}">`:""}<div class="grid" style="margin-top:12px">${L.length?L.map(giftCard).join(""):emp("gift","No gifts yet. Add one above 🎁")}</div>`}
+function vPeople(){return`${ttl("People")}<button class="btn" data-a="addrec">+ Add a person</button><div class="grid" style="margin-top:12px">${S.recips.length?S.recips.map(r=>{const G=S.gifts.filter(g=>g.rid===r.id&&act(g)),sp=G.filter(bought).reduce((a,g)=>a+(g.actual||g.plan||0),0);
+ return`<div class="card"><div class="row sp"><h3>${esc(r.name)}</h3><span class="tag">${esc(r.group)}</span></div><div class="bar"><i class="${r.budget>0&&sp>r.budget?"over":""}" style="width:${pct(sp,r.budget)}%"></i></div><div class="mu">${fm(sp)} of ${fm(r.budget)} · ${G.length} gift${G.length==1?"":"s"} · ${r.card=="yes"?"✉️ card sent":"card not sent"}</div>${r.addr?`<div class="mu">📍 ${esc(r.addr)}</div>`:""}<div class="row" style="margin-top:8px"><button class="btn alt sm" data-a="viewrec" data-id="${r.id}">Gifts</button><button class="btn alt sm" data-a="editrec" data-id="${r.id}">Edit</button><button class="btn alt sm" data-a="delrec" data-id="${r.id}">Delete</button></div></div>`}).join(""):emp("tree","Add the people you buy for 👪")}</div>`}
+function vIdeas(){return`${ttl("Ideas")}<div class="card"><h3>Save an idea</h3><input id="in" placeholder="Gift idea" aria-label="Idea"><div class="row" style="margin-top:8px"><select id="ip" aria-label="For">${pOpts("")}</select><input id="ic" inputmode="decimal" placeholder="Price" aria-label="Price"></div><button class="btn big" style="margin-top:10px" data-a="addidea">Save idea</button></div><div class="grid">${S.ideas.length?S.ideas.map(i=>`<div class="card"><div class="row sp"><b>${i.fav?"⭐ ":""}${esc(i.name)}</b><span>${fm(i.price)}</span></div><div class="mu">For ${esc(rn(i.rid))}</div><div class="row" style="margin-top:8px">${i.done?`<span class="tag">Now a gift</span>`:`<button class="btn sm" data-a="conv" data-id="${i.id}">Make a gift</button>`}<button class="btn alt sm" data-a="favidea" data-id="${i.id}">${i.fav?"Unstar":"Star"}</button><button class="btn alt sm" data-a="delidea" data-id="${i.id}">Delete</button></div></div>`).join(""):emp("bauble","No ideas yet 💡")}</div>`}
+function vShop(){const L=S.gifts.filter(g=>act(g)&&!bought(g)),tot=L.reduce((a,g)=>a+(g.plan||0),0),by={};L.forEach(g=>(by[g.store||"Any shop"]??=[]).push(g));
+ return`${ttl("Shop")}<div class="card"><div class="mu">Still to buy</div><div class="big-n">${fm(tot)}</div><div class="row" style="margin-top:8px"><button class="btn alt sm" data-a="copyshop">Copy list</button><button class="btn alt sm" data-a="addextra">+ Extra cost</button></div></div>${Object.keys(by).length?Object.entries(by).map(([s,a])=>`<div class="card"><h3>🛒 ${esc(s)}</h3>${a.map(g=>`<div class="row sp" style="padding:6px 0"><span>${esc(g.name)} <span class="mu">for ${esc(rn(g.rid))}</span></span><span class="row"><span>${fm(g.plan)}</span><button class="btn sm" data-a="buy" data-id="${g.id}">Bought</button></span></div>`).join("")}</div>`).join(""):`<div class="card empty">${art("gift")}Nothing left to buy 🎉</div>`}${S.extras.length?`<div class="card"><h3>Extra costs</h3>${S.extras.map(e=>`<div class="row sp"><span>${esc(e.t)}</span><span>${fm(e.amt)} <button class="btn alt sm" data-a="delextra" data-id="${e.id}" aria-label="Delete cost">Delete</button></span></div>`).join("")}<p class="mu">Wrapping, postage and so on. Use a minus number for a refund.</p></div>`:""}`}
+const plan=()=>{const s=S.sav,W=s.weeks,k=s.target/(W*(W+1)/2);return Array.from({length:W},(_,i)=>Math.round(k*(i+1)))};
+function vSave(){const s=S.sav;if(!s.target)return`${ttl("Savings")}<div class="card empty">${art("tree")}Save a little each week for Christmas.<br><br><button class="btn" data-a="setsav">Start a challenge</button></div>`;
+ const P=plan(),done=P.reduce((a,v,i)=>a+(s.paid[i]?v:0),0),p=pct(done,s.target),orn=Math.round(p/100*12),pos=[[100,60],[80,90],[120,92],[65,125],[100,128],[135,126],[55,160],[85,162],[115,164],[145,160],[100,195],[70,198]];
+ return`${ttl("Savings")}<div class="grid"><div class="card" style="text-align:center"><svg viewBox="0 0 200 230" width="170" role="img" aria-label="Tree with ${orn} of 12 ornaments lit"><polygon points="100,20 40,100 160,100" fill="var(--gr)"/><polygon points="100,70 25,150 175,150" fill="var(--gr)"/><polygon points="100,120 10,215 190,215" fill="var(--gr)" opacity=".9"/><text x="100" y="26" text-anchor="middle" font-size="22">⭐</text>${pos.map((o,i)=>`<circle cx="${o[0]}" cy="${o[1]}" r="7" fill="${i<orn?"var(--go)":"none"}" stroke="var(--go)" stroke-width="2"/>`).join("")}</svg><div class="big-n">${fm(done)}</div><div class="mu">of ${fm(s.target)} · ${p}% · ${fm(s.target-done)} to go</div><button class="btn alt sm" style="margin-top:8px" data-a="setsav">Change challenge</button></div>
+ <div class="card"><h3>${s.weeks}-week plan</h3><div style="max-height:380px;overflow:auto">${P.map((v,i)=>`<label class="row sp" style="margin:0;padding:6px 0;color:var(--tx);font-size:1rem"><span>Week ${i+1}: save ${fm(v)}</span><input type="checkbox" data-w="${i}" ${s.paid[i]?"checked":""} aria-label="Week ${i+1} saved"></label>`).join("")}</div></div></div>`}
+function vTasks(){const d=S.tasks.filter(t=>t.done).length;return`${ttl("Tasks")}<div class="mu">${d} of ${S.tasks.length} done</div><div class="bar"><i style="width:${pct(d,S.tasks.length)}%"></i></div><button class="btn" data-a="addtask">+ Add a task</button><div class="card">${S.tasks.length?S.tasks.map(t=>`<div class="row sp" style="padding:6px 0"><label class="row" style="margin:0;color:var(--tx);font-size:1rem"><input type="checkbox" data-t="${t.id}" ${t.done?"checked":""} aria-label="Done"><span style="${t.done?"text-decoration:line-through;opacity:.6":""}">${esc(t.t)}${t.due?` <span class="mu">${esc(fd(t.due))}</span>`:""}</span></label><button class="btn alt sm" data-a="deltask" data-id="${t.id}" aria-label="Delete task">Delete</button></div>`).join(""):`<div class="empty">${art("bauble")}No tasks yet.</div>`}</div>`}
+function vSet(){return`${ttl("Settings")}<div class="card"><h3>Look</h3><label for="th">Theme</label><select id="th">${[["classic","Classic Christmas"],["blush","Blush Holiday"],["winter","Winter Evergreen"],["midnight","Midnight Christmas"]].map(t=>`<option value="${t[0]}" ${S.theme===t[0]?"selected":""}>${t[1]}</option>`).join("")}</select></div>
+ <div class="card"><h3>Your details</h3><label for="sn">Name</label><input id="sn" value="${esc(S.name)}"><label for="sc">Currency (only changes how money looks)</label><select id="sc">${CUR.map(c=>`<option ${S.cur===c?"selected":""}>${c}</option>`).join("")}</select><label for="sd">Christmas date</label><input id="sd" type="date" value="${esc(S.date)}"><label for="sb">Total gift budget</label><input id="sb" inputmode="decimal" value="${num(S.budget)}"><button class="btn" style="margin-top:12px" data-a="savesettings">Save</button></div>
+ <div class="card"><h3>Backup</h3><p class="mu">Your plans live only on this device. Copy a backup and keep it somewhere safe, like Notes. Last backup: ${S.lastBackup?new Date(S.lastBackup).toLocaleDateString():"never"}</p><div class="row"><button class="btn" data-a="bk">💾 Copy backup</button><button class="btn alt" data-a="rs">📂 Restore</button></div></div>
+ <div class="card"><h3>Start over</h3><button class="btn alt" data-a="reset">Erase everything</button></div>`}
+const F=(k,l,t,o)=>({k,l,t,o});
+function form(title,fields,vals,ok){const d=$("#dlg");d.innerHTML=`<form method="dialog" id="df"><h3>${esc(title)}</h3>${fields.map(f=>`<label for="f_${f.k}">${esc(f.l)}</label>${f.t==="sel"?`<select id="f_${f.k}">${f.o.map(o=>`<option value="${esc(o[0])}" ${String(vals[f.k]??"")===String(o[0])?"selected":""}>${esc(o[1])}</option>`).join("")}</select>`:f.t==="area"?`<textarea id="f_${f.k}" rows="3">${esc(vals[f.k]||"")}</textarea>`:`<input id="f_${f.k}" type="${f.t==="m"?"text":f.t}" ${f.t==="m"?'inputmode="decimal"':""} value="${esc(f.t==="m"?(vals[f.k]?num(vals[f.k]):""):(vals[f.k]??""))}">`}`).join("")}<div class="row" style="margin-top:14px"><button class="btn" type="submit" style="flex:1">Save</button><button class="btn alt" type="button" id="cx" style="flex:1">Cancel</button></div></form>`;
+ d.showModal();$("#cx").onclick=()=>d.close();$("#df").onsubmit=e=>{e.preventDefault();const o={};fields.forEach(f=>{const v=$("#f_"+f.k).value;o[f.k]=f.t==="m"?cents(v):v.trim()});if(ok(o)!==false)d.close()}}
+function ask(msg,label,fn){const d=$("#dlg");d.innerHTML=`<p>${esc(msg)}</p><div class="row"><button class="btn" id="ok" style="flex:1">${esc(label)}</button><button class="btn alt" id="cx" style="flex:1">Cancel</button></div>`;d.showModal();$("#cx").onclick=()=>d.close();$("#ok").onclick=()=>{d.close();fn()}}
+function showText(title,note,txt,restore){const d=$("#dlg");d.innerHTML=`<h3>${esc(title)}</h3><p class="mu">${esc(note)}</p><textarea id="tx" rows="7" ${restore?"":"readonly"} aria-label="${esc(title)}">${esc(txt)}</textarea><div class="row" style="margin-top:12px"><button class="btn" id="ok" style="flex:1">${restore?"Restore":"Copy"}</button><button class="btn alt" id="cx" style="flex:1">Close</button></div>`;d.showModal();$("#cx").onclick=()=>d.close();
+ $("#ok").onclick=restore?()=>{try{const x=JSON.parse($("#tx").value);if(!Array.isArray(x.gifts)||!Array.isArray(x.recips))throw 0;d.close();ask(`Restore ${x.gifts.length} gifts and ${x.recips.length} people? This replaces what you have now.`,"Restore",()=>{S={...blank(),...x,setup:true};save();render();toast("Restored ✓")})}catch(e){toast("That text isn’t a MerryNest backup.")}}:()=>{const t=$("#tx");t.select();let p;try{p=navigator.clipboard.writeText(t.value)}catch(e){}(p||Promise.reject()).then(()=>toast("Copied ✓"),()=>{try{document.execCommand("copy");toast("Copied ✓")}catch(e){toast("Press and hold the text to copy it.")}})}}
+function A(a,id){const g=S.gifts.find(x=>x.id===id),r=S.recips.find(x=>x.id===id),i=S.ideas.find(x=>x.id===id);
+ const buy=()=>form("Bought: "+g.name,[F("actual","Price you paid","m")],{actual:g.plan},o=>{g.actual=o.actual;g.status="bought";save();render();toast("Marked as bought ✓")});
+ const m={
+ qadd:()=>{const n=$("#gn").value.trim();if(!n){toast("Type the gift name first.");$("#gn").focus();return}let rid=$("#gp").value;if(rid==="__new"){const pn=$("#gnp").value.trim();if(!pn){toast("Type the person’s name.");$("#gnp").focus();return}rid=uid();S.recips.push({id:rid,name:pn,group:"Family",budget:0,card:"no",addr:""})}
+  S.gifts.unshift({id:uid(),name:n,rid,plan:cents($("#gc").value),actual:0,status:"planned",store:"",url:"",notes:""});save();render();toast("Gift added ✓")},
+ adv:()=>{const s=st(g);if(s==="planned")return buy();g.status=ST[ST.indexOf(s)+1];save();render()},buy,
+ editgift:()=>form("Edit gift",[F("name","Gift","text"),F("rid","For","sel",[["","Not sure yet"],...S.recips.map(x=>[x.id,x.name])]),F("plan","Planned price","m"),F("actual","Price paid","m"),F("status","Progress","sel",ST.map(s=>[s,LB[s]])),F("store","Shop","text"),F("url","Link (optional)","url"),F("notes","Notes","area")],{...g,status:st(g)},o=>{if(!o.name){toast("Please enter a gift name.");return false}if(o.url&&!/^https?:\/\//i.test(o.url)){toast("The link must start with http:// or https://");return false}Object.assign(g,o);save();render();toast("Saved ✓")}),
+ delgift:()=>del(()=>{S.gifts=S.gifts.filter(x=>x.id!==id)},"Gift deleted"),
+ addrec:()=>recForm(),editrec:()=>recForm(r),viewrec:()=>{go("gifts");q=r.name;render()},
+ delrec:()=>del(()=>{S.gifts.forEach(x=>{if(x.rid===id)x.rid=""});S.recips=S.recips.filter(x=>x.id!==id)},r.name+" removed. Their gifts are kept."),
+ addidea:()=>{const n=$("#in").value.trim();if(!n){toast("Type your idea first.");return}S.ideas.unshift({id:uid(),name:n,rid:$("#ip").value,price:cents($("#ic").value),store:"",fav:false,done:false});save();render();toast("Idea saved ✓")},
+ favidea:()=>{i.fav=!i.fav;save();render()},delidea:()=>del(()=>{S.ideas=S.ideas.filter(x=>x.id!==id)},"Idea deleted"),
+ conv:()=>{if(i.done)return;S.gifts.unshift({id:uid(),name:i.name,rid:i.rid,plan:i.price,actual:0,status:"planned",store:i.store||"",url:"",notes:""});i.done=true;save();render();toast("Added to Gifts ✓")},
+ addextra:()=>form("Extra cost",[F("t","What for? (e.g. wrapping paper)","text"),F("amt","Amount (minus for a refund)","m")],{},o=>{if(!o.t||!o.amt){toast("Please fill in both boxes.");return false}S.extras.push({id:uid(),...o});save();render()}),
+ delextra:()=>del(()=>{S.extras=S.extras.filter(x=>x.id!==id)},"Cost deleted"),
+ copyshop:()=>showText("Shopping list","Copy this and paste it into Notes or a message.",S.gifts.filter(x=>act(x)&&!bought(x)).map(x=>`☐ ${x.name} (for ${rn(x.rid)}) ${x.store?"at "+x.store+" ":""}- ${fm(x.plan)}`).join("\n")||"Nothing left to buy!"),
+ setsav:()=>form("Savings challenge",[F("target","How much do you want to save?","m"),F("weeks","For how long?","sel",[[12,"12 weeks"],[26,"26 weeks"],[52,"52 weeks"]])],{target:S.sav.target,weeks:S.sav.weeks},o=>{if(o.target<=0){toast("Enter a goal above zero.");return false}S.sav={target:o.target,weeks:+o.weeks,paid:Array.from({length:+o.weeks},(_,k)=>!!S.sav.paid[k])};save();render()}),
+ addtask:()=>form("Add task",[F("t","Task","text"),F("due","Due date (optional)","date")],{},o=>{if(!o.t){toast("Please type a task.");return false}S.tasks.push({id:uid(),done:false,...o});save();render()}),
+ deltask:()=>del(()=>{S.tasks=S.tasks.filter(x=>x.id!==id)},"Task deleted"),
+ savesettings:()=>{S.name=$("#sn").value.trim();S.cur=$("#sc").value;S.date=$("#sd").value||S.date;S.budget=cents($("#sb").value);save();render();toast("Saved ✓")},
+ bk:()=>{S.lastBackup=Date.now();save();showText("Your backup","Copy all of this text and keep it safe. To restore later, paste it into Settings → Restore.",JSON.stringify(S))},
+ rs:()=>showText("Restore backup","Paste your backup text here.","",true),
+ rename:()=>form("Your name",[F("name","Your name","text")],{name:S.name},o=>{S.name=o.name;save();render()}),
+ help:()=>{const d=$("#dlg");d.innerHTML=`<h3>${esc(TABS.find(t=>t[0]===view)[2])}</h3><p>${esc(HELP[view])}</p><button class="btn" id="cx">Got it</button>`;d.showModal();$("#cx").onclick=()=>d.close()},
+ reset:()=>ask("Erase everything on this device? Copy a backup first if you want to keep it.","Erase everything",()=>{S=blank();save();render()})};
+ m[a]&&m[a]()}
+function recForm(r){form(r?"Edit person":"Add person",[F("name","Name","text"),F("group","Group","sel",["Family","Friends","Children","Coworkers","Neighbors","Other"].map(x=>[x,x])),F("budget","Budget for them","m"),F("card","Christmas card","sel",[["no","Not sent yet"],["yes","Sent"]]),F("addr","Address (optional)","area")],r||{group:"Family",card:"no"},o=>{if(!o.name){toast("Please enter a name.");return false}if(r)Object.assign(r,o);else S.recips.push({id:uid(),...o});save();render()})}
+function bind(){const M=$("#main");M.querySelectorAll("[data-a]").forEach(b=>b.onclick=()=>A(b.dataset.a,b.dataset.id));M.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
+ M.querySelectorAll("[data-w]").forEach(c=>c.onchange=()=>{S.sav.paid[+c.dataset.w]=c.checked;save();render()});
+ M.querySelectorAll("[data-t]").forEach(c=>c.onchange=()=>{S.tasks.find(x=>x.id===c.dataset.t).done=c.checked;save();render()});
+ const gp=$("#gp");if(gp)gp.onchange=()=>{$("#gnp").style.display=gp.value==="__new"?"block":"none"};
+ const qi=$("#q");if(qi)qi.oninput=()=>{q=qi.value;const p=qi.selectionStart;render();const n=$("#q");n.focus();n.setSelectionRange(p,p)};
+ const th=$("#th");if(th)th.onchange=()=>{S.theme=th.value;save();render()}}
+for(let k=0;k<14;k++){const s=document.createElement("span");s.className="snow";s.textContent="❄";s.setAttribute("aria-hidden","true");s.style.cssText=`left:${k*7.3+2}%;font-size:${10+k%4*5}px;animation-duration:${9+k%5*3}s;animation-delay:-${k*1.7}s`;document.body.appendChild(s)}
+load();render();
+</script>
+<!-- ===== MerryNest DEMO LIMITER (GitHub demo build only — NOT in the Etsy full version) ===== -->
+<style>
+#mnDemoPill{position:fixed;top:10px;right:10px;z-index:99990;background:#B02A37;color:#fff;
+font:600 13px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:8px 14px;border-radius:999px;
+box-shadow:0 4px 16px rgba(43,38,34,.25);display:flex;gap:8px;align-items:center}
+#mnDemoPill b{background:#fff;color:#B02A37;border-radius:999px;padding:1px 8px}
+#mnDemoLock{position:fixed;inset:0;z-index:99999;background:rgba(42,35,32,.55);display:none;
+align-items:center;justify-content:center;padding:20px}
+#mnDemoLock .card{background:#FFF8EE;max-width:520px;width:100%;border-radius:20px;padding:32px 30px;
+text-align:center;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#2a2320;
+box-shadow:0 24px 60px rgba(0,0,0,.35)}
+#mnDemoLock h2{margin:0 0 6px;font-size:26px;color:#B02A37}
+#mnDemoLock p{margin:10px 0;font-size:15px;line-height:1.55;color:#4a443d}
+#mnDemoLock a.buy{display:inline-block;margin-top:14px;background:#1F4D38;color:#fff;text-decoration:none;
+font-weight:700;font-size:16px;padding:14px 28px;border-radius:999px}
+#mnDemoLock .keep{display:block;margin-top:14px;font-size:13px;color:#6E675F}
+</style>
+<div id="mnDemoPill" role="status">DEMO <span>·</span> <b id="mnDemoLeft">10 saves left</b></div>
+<div id="mnDemoLock" role="dialog" aria-modal="true" aria-labelledby="mnDemoLockTitle">
+  <div class="card">
+    <h2 id="mnDemoLockTitle">You have used your 10 free demo saves</h2>
+    <p>Thanks for trying <b>MerryNest — Christmas Gift Planner</b>! This free demo lets you save 10 times so you can feel how easy Christmas planning is — gifts, people, budgets, shop lists, savings and tasks.</p>
+    <p><b>The full version saves unlimited data</b>, works fully offline as a single file you own forever — no subscription, no account.</p>
+    <a class="buy" id="mnDemoBuy" href="https://www.etsy.com/" target="_blank" rel="noopener">Get the full version on Etsy</a>
+    <span class="keep">You can still look around this demo and everything you have already saved — new changes just will not save in the demo.</span>
+  </div>
+</div>
+<script>
+(function(){
+  "use strict";
+  /* ==== CONFIG: paste the real Etsy listing URL here after publishing ==== */
+  var ETSY_BUY_URL = "https://www.etsy.com/";
+  var LIMIT = 10;
+  var COUNT_KEY = "merrynest_demo_saveCount_v1";
+  var THROTTLE_MS = 1500;
+  var GRACE_MS = 3000;
+  var loadTime = Date.now();
+  var lastCounted = 0;
+  function getCount(){ try { return parseInt(localStorage.getItem(COUNT_KEY) || "0", 10) || 0; } catch(e){ return 0; } }
+  function setCount(n){ try { Storage.prototype.setItem.call(localStorage, COUNT_KEY, String(n)); } catch(e){} }
+  var core = {
+    used: getCount(),
+    remaining: function(){ return Math.max(0, LIMIT - this.used); },
+    onWrite: function(now){
+      if (now - loadTime < GRACE_MS) return "ignore";
+      if (this.used >= LIMIT) return "block";
+      if (now - lastCounted < THROTTLE_MS) return "ignore";
+      lastCounted = now; this.used += 1; setCount(this.used);
+      return this.used >= LIMIT ? "count-block" : "count";
+    }
+  };
+  window.__mnDemoCore = core;
+  function render(){
+    var left = core.remaining();
+    var el = document.getElementById("mnDemoLeft");
+    if (el) el.textContent = left + (left === 1 ? " save left" : " saves left");
+    if (left <= 0) {
+      var lock = document.getElementById("mnDemoLock");
+      var buy = document.getElementById("mnDemoBuy");
+      if (buy) buy.href = ETSY_BUY_URL;
+      if (lock) lock.style.display = "flex";
+    }
+  }
+  var origSet = Storage.prototype.setItem;
+  Storage.prototype.setItem = function(key, value){
+    if (this === localStorage && typeof key === "string" && key.indexOf("merrynest_") === 0 && key !== COUNT_KEY) {
+      var r = core.onWrite(Date.now());
+      if (r === "block") { render(); return; }
+      var out = origSet.apply(this, arguments);
+      if (r === "count" || r === "count-block") render();
+      return out;
+    }
+    return origSet.apply(this, arguments);
+  };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", render);
+  else render();
+})();
+</script>
+<!-- ===== /MerryNest DEMO LIMITER ===== -->
+
+</body></html>
